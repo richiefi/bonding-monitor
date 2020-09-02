@@ -18,7 +18,7 @@ The main branch of this repository is automatically built and uploaded to Docker
 
 If a server fails a health check twice in a row, its configured port on the switch will be disabled and the comment `bonding-monitor health check fail` set on the port.
 
-If a server is healthy twice in a row, but the port on the switch is disabled due to a previous failure, `bonding-monitor` will change its comment to `bonding-monitor preparing to enable`. Finally, if a server is healthy for four consecutive checks and the port comment remains `bonding-monitor preparing to enable`, the port will be enabled and the comment removed.
+If a server is healthy twice in a row, but the port on the switch is disabled due to a previous failure (as indicated by having the _check fail_ comment), `bonding-monitor` will change its comment to `bonding-monitor preparing to enable`. Finally, if a server is healthy for four consecutive checks and the port comment remains `bonding-monitor preparing to enable`, the port will be enabled and the comment removed.
 
 You can run the monitor on multiple servers simultaneously; for example, on all of the servers of the monitored cluster.
 

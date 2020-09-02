@@ -111,8 +111,9 @@ def monitor(switch, health_check_url, health_check_interval, servers):
                     switch.set_comment(server['switch_port'], fail_comment)
                 if switch.is_enabled(server['switch_port']):
                     switch.disable_port(server['switch_port'])
-            if server['ok_count'] >= 2 and not switch.is_enabled(server['switch_port']):
-                if not comment or comment != preparing_comment:
+            if server['ok_count'] >= 2 and not switch.is_enabled(server['switch_port']) and comment is not None:
+                # If an interface is down with no comment, assume it has been manually disabled
+                if comment != preparing_comment:
                     switch.set_comment(server['switch_port'], preparing_comment)
                 elif server['ok_count'] >= 4:
                     # The server comment is still preparing_comment after four cycles, enable port and
