@@ -1,0 +1,17 @@
+health_check_url = "https://example.com/healthcheck"
+health_check_interval = 5 # seconds; checks must fail twice before port is disabled and succeed four times before re-enabled
+switch_host = "switch.example.com"
+switch_user = "bonding-monitor"
+switch_password = "examplepassword"
+
+[[servers]]
+server_ip = "192.0.2.1"
+switch_port = "sfp-sfpplus1"
+
+[[servers]]
+server_ip = "192.0.2.2"
+switch_port = "sfp-sfpplus2"
+
+[[servers]]
+server_ip = "192.0.2.3"
+switch_port = "sfp-sfpplus3"
